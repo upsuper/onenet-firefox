@@ -1,0 +1,12 @@
+{
+  "title": "VnewLink OneNet for Firefox",
+  "name": "onenet-firefox",
+  "version": "0.0.1",
+  "description": "快速设置OneNet",
+  "main": "index.js",
+  "author": "Xidorn Quan <quanxunzhen@gmail.com>",
+  "engines": {
+    "firefox": ">=38.0a1"
+  },
+  "license": "MIT"
+}

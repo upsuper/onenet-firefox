@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>扩展栏菜单</title>
+  <style>
+    body { font: 14px/20px sans-serif; margin: 0px; }
+    h2 { font: inherit; margin: 5px; text-align: center; }
+    button {
+      display: block;
+      width: 150px;
+      padding: 6px 12px;
+      color: white;
+      margin: 5px auto;
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      font: 12px/18px sans-serif;
+    }
+    button.active, button:active {
+      box-shadow: 0px 3px 5px rgba(0, 0, 0, .125) inset;
+    }
+    #proxy > button {
+      background-color: #5cb85c;
+      border-color: #4cae4c;
+    }
+    #proxy > button:hover {
+      background-color: #449d44;
+      border-color: #398439;
+    }
+    #proxy > button.active,
+    #proxy > button:active {
+      background-color: #398439;
+      border-color: #255625;
+    }
+    #proxy > button:last-child {
+      background-color: #d9534f;
+      border-color: #d43f3a;
+    }
+    #proxy > button:hover:last-child {
+      background-color: #c9302c;
+      border-color: #ac2925;
+    }
+    #proxy > button.active:last-child,
+    #proxy > button:active:last-child {
+      background-color: #ac2925;
+      border-color: #761c19;
+    }
+    #manage > button {
+      background-color: #337ab7;
+      border-color: #2e6da4;
+    }
+    #manage > button:hover {
+      background-color: #286090;
+      border-color: #204d74;
+    }
+    #manage > button.active,
+    #manage > button:active {
+      background-color: #204d74;
+      border-color: #122b40;
+    }
+  </style>
+</head>
+<body>
+  <h2>选择服务区</h2>
+  <div id="proxy">
+    <button data-proxy="jp">日本[智能]</button>
+    <button data-proxy="us">美国[智能]</button>
+    <button data-proxy="fr">法国[智能]</button>
+    <button data-proxy="sg">新加坡[智能]</button>
+    <button data-proxy="jp_all">日本[全局]</button>
+    <button data-proxy="us_all">美国[全局]</button>
+    <button data-proxy="fr_all">法国[全局]</button>
+    <button data-proxy="sg_all">新加坡[全局]</button>
+    <button data-proxy>停用</button>
+  </div>
+  <h2>账户管理</h2>
+  <div id="manage">
+    <button data-link="https://vnet.link/i">仪表盘</button>
+  </div>
+</body>
+</html>
