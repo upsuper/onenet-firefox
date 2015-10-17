@@ -1,2 +1,2 @@
-#VnewLink OneNet for Firefox
+#VnetLink OneNet for Firefox
 快速设置OneNet
