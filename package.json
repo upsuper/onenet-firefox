@@ -1,7 +1,7 @@
 {
   "title": "VnetLink OneNet (Unofficial)",
   "name": "onenet-unofficial",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "快速设置OneNet",
   "main": "index.js",
   "author": "Xidorn Quan <quanxunzhen@gmail.com>",

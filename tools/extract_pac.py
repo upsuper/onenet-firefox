@@ -18,7 +18,7 @@ def extract_pac_files(source):
             continue
         name, data = result
         print("extract {}, length {} bytes".format(name, len(data)))
-        with open('data/' + name + '.pac', 'wb') as pac:
+        with open('data/pac/' + name + '.pac', 'wb') as pac:
             pac.write(data)
 
 def main():
