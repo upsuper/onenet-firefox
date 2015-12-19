@@ -96,27 +96,32 @@ function FindProxyForURL(url, host){
     var D = 'DIRECT';
     //ServerList
     if(isHTTPS(url)===false){
-        var P = 'HTTPS node-sg.vnet.link:211;HTTPS node-sg.vnet.link:221;HTTPS node-sg.vnet.link:231;PROXY node-sg.vnet.link:210;PROXY node-sg.vnet.link:220;PROXY node-sg.vnet.link:230;';
+        var P = 'HTTPS onenet-sg.vnet.link:211;HTTPS onenet-sg.vnet.link:221;HTTPS onenet-sg.vnet.link:231;PROXY onenet-sg.vnet.link:210;PROXY onenet-sg.vnet.link:220;PROXY onenet-sg.vnet.link:230;';
     }else{
-        var P = 'PROXY node-sg.vnet.link:210;PROXY node-sg.vnet.link:220;PROXY node-sg.vnet.link:230;HTTPS node-sg.vnet.link:211;HTTPS node-sg.vnet.link:221;HTTPS node-sg.vnet.link:231;';
+        var P = 'HTTPS onenet-sg.vnet.link:211;HTTPS onenet-sg.vnet.link:221;HTTPS onenet-sg.vnet.link:231;PROXY onenet-sg.vnet.link:210;PROXY onenet-sg.vnet.link:220;PROXY onenet-sg.vnet.link:230;';
     }
     
     var L_direct = eval(base64decode('WyJnb29nbGUuY29tIiwieW91dHViZS5jb20iLCJhbWF6b24uZGUiLCJjbG91ZGZyb250Lm5ldCJd'));
 var L1x = loopc(L_direct,host,D);
 if(L1x!==false){return L1x;}
-var L_service = eval(base64decode('WyJiYWlkdS5jb20iLCJtbTExMS5uZXQiLCJ5b3VrdS5jb20iLCJ0b3Vkb3UuY29tIiwidG91ZG91dWkuY29tIiwieWtpbWcuY29tIiwiaXAuY24iXQ=='));
+var L_service = eval(base64decode('WyJiYWlkdS5jb20iLCJtbTExMS5uZXQiLCJ5b3VrdS5jb20iLCJ0b3Vkb3UuY29tIiwidG91ZG91dWkuY29tIiwieWtpbWcuY29tIiwiaXAuY24iLCIxNjMuY29tIiwiMTI2Lm5ldCJd'));
 var L2x = loopc(L_service,host,P);
 if(L2x!==false){return L2x;}
     
-    //Preload-LAN
+        //Preload-Out
+    var L_service_out = eval(base64decode('WyJ5b3VrdS5jb20iLCAidHVkb3UuY29tIiwgInNjb3JlY2FyZHJlc2VhcmNoLmNvbSAiLCAiYWRtYXN0ZXIuY29tLmNuIiwgImlyczAxLmNvbSIsICJhbGltYW1hLmNuIiwgInRhbnguY29tIiwgInphbXBkc3AuY29tIiwgIm1tc3RhdC5jb20iLCAiYWxpY2RuLmNvbSIsICJtaWFvemhlbi5jb20iLCAieWtpbWcuY29tIiwgImd0YWdzLm5ldCIsICJjci1uaWVsc2VuLmNvbSIsICJ0ZGltZy5jb20iLCAidGFvYmFvY2RuLmNvbSIsICJtZWRpYXYuY29tIiwgInFpeWkuY29tIiwgInAweS5jbiIsICJxbG9nby5jbiIsICJzaW5haW1nLmNuIiwgImlwaW55b3UuY29tIiwgImd0aW1nLmNuIiwgIjM2MGJ1eWltZy5jb20iLCAidGVuY2VudG1pbmQuY29tIiwgImd0aW1nLmNvbSIsICIzLmNuIiwgInNvaHUuY29tIiwgImlyczAxLm5ldCIsICJpdGMuY24iLCAid3JhdGluZy5jb20iLCAic29nb3UuY29tIiwgIm9wdGFpbS5jb20iLCAiYmFpZHVzdGF0aWMuY29tIiwgImJhaWR1LmNvbSIsICJwYWlwYWlpbWcuY29tIiwgIm1tY2RuLmNuIiwgIm1sdDAxLmNvbSIsICJhY3M4Ni5jb20iLCAieHVubGVpLmNvbSIsICJrYW5rYW4uY29tIiwgInNhbmRhaS5uZXQiLCAia2FuaW1nLmNvbSIsICJyZXZzY2kubmV0IiwgInNjb3JlY2FyZHJlc2VhcmNoLmNvbSIsICJiaWxpYmlsaS5jb20iLCAiYWNndmlkZW8uY29tIiwgImhkc2xiLmNvbSIsICJmdW5zaGlvbi5jb20iLCAiZnVuc2hpb24ubmV0IiwgImJhaWR1c3RhaWMuY29tIiwgImRvdWJsZWNsaWNrLm5ldCIsICJ6aGl6aXl1bi5jb20iLCAiNnJvb21zLmNvbSIsICI2LmNuIiwgImxldHYuY29tIiwgImxldHZjZG4uY29tIiwgImFkbWFzdGVyLmNvbSIsICJsZXR2LmNuIiwgIm1tMTExLm5ldCIsICJhY2Z1bi50diIsICJsZXR2Y2xvdWQuY29tIiwgImlzdHJlYW1zY2hlLmNvbSIsInRvdWRvdXVpLmNvbSIsIjE2My5jb20iLCIxMjYubmV0Il0='));
+    var L2x_out = loopc(L_service_out,host,P);
+    if(L2x_out!==false){return L2x_out;}   
+        
+        //Preload-LAN
     for(var a in L_LAN){
         if(isInNet(host,L_LAN[a][0],L_LAN[a][1])){
             return D;
         }
     }
-    
+        
     //Preload-DirectGo
-    if(suffix(host,'vnet.link')||suffix(host,'getpac.tk')||suffix(host,'pcnt.in')){
+    if(suffix(host,'vnet.link')||suffix(host,'getpac.tk')){
         return D;
     }
     
@@ -125,11 +130,7 @@ if(L2x!==false){return L2x;}
         return 'HTTPS node-jp.vnet.link:111;PROXY node-jp.vnet.link:101;';
     }
     
-        //Preload-Out
-    var L_service_out = eval(base64decode('WyJ5b3VrdS5jb20iLCAidHVkb3UuY29tIiwgInNjb3JlY2FyZHJlc2VhcmNoLmNvbSAiLCAiYWRtYXN0ZXIuY29tLmNuIiwgImlyczAxLmNvbSIsICJhbGltYW1hLmNuIiwgInRhbnguY29tIiwgInphbXBkc3AuY29tIiwgIm1tc3RhdC5jb20iLCAiYWxpY2RuLmNvbSIsICJtaWFvemhlbi5jb20iLCAieWtpbWcuY29tIiwgImd0YWdzLm5ldCIsICJjci1uaWVsc2VuLmNvbSIsICJ0ZGltZy5jb20iLCAidGFvYmFvY2RuLmNvbSIsICJtZWRpYXYuY29tIiwgInFpeWkuY29tIiwgInAweS5jbiIsICJxbG9nby5jbiIsICJzaW5haW1nLmNuIiwgImlwaW55b3UuY29tIiwgImd0aW1nLmNuIiwgIjM2MGJ1eWltZy5jb20iLCAidGVuY2VudG1pbmQuY29tIiwgImd0aW1nLmNvbSIsICIzLmNuIiwgInNvaHUuY29tIiwgImlyczAxLm5ldCIsICJpdGMuY24iLCAid3JhdGluZy5jb20iLCAic29nb3UuY29tIiwgIm9wdGFpbS5jb20iLCAiYmFpZHVzdGF0aWMuY29tIiwgImJhaWR1LmNvbSIsICJwYWlwYWlpbWcuY29tIiwgIm1tY2RuLmNuIiwgIm1sdDAxLmNvbSIsICJhY3M4Ni5jb20iLCAieHVubGVpLmNvbSIsICJrYW5rYW4uY29tIiwgInNhbmRhaS5uZXQiLCAia2FuaW1nLmNvbSIsICJyZXZzY2kubmV0IiwgInNjb3JlY2FyZHJlc2VhcmNoLmNvbSIsICJiaWxpYmlsaS5jb20iLCAiYWNndmlkZW8uY29tIiwgImhkc2xiLmNvbSIsICJmdW5zaGlvbi5jb20iLCAiZnVuc2hpb24ubmV0IiwgImJhaWR1c3RhaWMuY29tIiwgImRvdWJsZWNsaWNrLm5ldCIsICJ6aGl6aXl1bi5jb20iLCAiNnJvb21zLmNvbSIsICI2LmNuIiwgImxldHYuY29tIiwgImxldHZjZG4uY29tIiwgImFkbWFzdGVyLmNvbSIsICJsZXR2LmNuIiwgIm1tMTExLm5ldCIsICJhY2Z1bi50diIsICJsZXR2Y2xvdWQuY29tIiwgImlzdHJlYW1zY2hlLmNvbSIsInRvdWRvdXVpLmNvbSJd'));
-    var L2x_out = loopc(L_service_out,host,P);
-    if(L2x_out!==false){return L2x_out;}   
-        
+    
         //Preload-Ip
     var ip = dnsResolve(host);
     for(var p in L_ip){

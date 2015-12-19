@@ -101,15 +101,9 @@ function FindProxyForURL(url, host){
     }
     
         
-    //Preload-LAN
-    for(var a in L_LAN){
-        if(isInNet(host,L_LAN[a][0],L_LAN[a][1])){
-            return D;
-        }
-    }
-    
+        
     //Preload-DirectGo
-    if(suffix(host,'vnet.link')||suffix(host,'getpac.tk')||suffix(host,'pcnt.in')){
+    if(suffix(host,'vnet.link')||suffix(host,'getpac.tk')){
         return D;
     }
     
